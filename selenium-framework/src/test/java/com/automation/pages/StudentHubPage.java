@@ -205,10 +205,38 @@ public class StudentHubPage extends BaseTest {
         if (pdfFound) {
             System.out.println(
                     "  VERIFIED: PDF found - " + pdfName);
-            return "Transcript downloaded as PDF: " + pdfName;
         } else {
             System.out.println(
                     "  VERIFICATION FAILED: No PDF in downloads");
+        }
+
+        // === CLEANUP: Close any extra tabs Chrome opened ===
+        // Chrome may open the PDF in a new tab — close all
+        // extras and return to the first (main) tab
+        java.util.ArrayList<String> tabs =
+                new java.util.ArrayList<>(
+                        driver.getWindowHandles());
+        System.out.println("  Open tabs: " + tabs.size());
+
+        if (tabs.size() > 1) {
+            // Keep the first tab, close everything else
+            String mainTab = tabs.get(0);
+            for (int t = tabs.size() - 1; t >= 1; t--) {
+                driver.switchTo().window(tabs.get(t));
+                System.out.println(
+                        "  Closing extra tab: "
+                                + driver.getTitle());
+                driver.close();
+            }
+            driver.switchTo().window(mainTab);
+            System.out.println(
+                    "  Switched back to main tab");
+        }
+        pause(1000);
+
+        if (pdfFound) {
+            return "Transcript downloaded as PDF: " + pdfName;
+        } else {
             return "PDF file NOT found in downloads folder";
         }
     }

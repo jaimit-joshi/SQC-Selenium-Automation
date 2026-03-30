@@ -47,6 +47,9 @@ public class ExcelUtil {
                 String val = getCellString(
                         dataRow.getCell(i));
                 if (!key.isEmpty()) {
+                    // Decrypt header and value if encrypted
+                    key = CryptoUtil.decrypt(key);
+                    val = CryptoUtil.decrypt(val);
                     data.put(key, val);
                 }
             }
@@ -84,6 +87,9 @@ public class ExcelUtil {
                     String val = getCellString(
                             dataRow.getCell(c));
                     if (!key.isEmpty()) {
+                        // Decrypt header and value if encrypted
+                        key = CryptoUtil.decrypt(key);
+                        val = CryptoUtil.decrypt(val);
                         row.put(key, val);
                         if (!val.isEmpty()) hasData = true;
                     }
