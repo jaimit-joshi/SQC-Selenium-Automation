@@ -1,0 +1,6 @@
+2026/03/29-21:46:01.759 752e3e Reusing MANIFEST /Users/jaimitjoshi/Desktop/SQC Automation/selenium-framework/chrome-test-profile/Default/Local Storage/leveldb/MANIFEST-000001
+2026/03/29-21:46:01.761 752e3e Recovering log #71
+2026/03/29-21:46:01.762 752e3e Reusing old log /Users/jaimitjoshi/Desktop/SQC Automation/selenium-framework/chrome-test-profile/Default/Local Storage/leveldb/000071.log 
+2026/03/29-21:48:58.374 752e41 Level-0 table #76: started
+2026/03/29-21:48:58.381 752e41 Level-0 table #76: 73805 bytes OK
+2026/03/29-21:48:58.390 752e41 Delete type=0 #71

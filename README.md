@@ -1,1 +1,0 @@
-# SQC-Selenium-Automation
